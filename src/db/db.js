@@ -1,18 +1,33 @@
 import mysql from 'mysql';
 
-const connection = mysql.createConnection({
-  host: 'remotemysql.com',
-  user: 'e21ieINjqn',
-  password: 'Kxx9wc7hj4',
-  database: 'e21ieINjqn'
-});
+// const env = process.env;
 
-connection.connect();
+const queryDB = async (sql, params) => {
 
-connection.query('SELECT 1 + 3 AS solution', function (err, rows, fields) {
-  if (err) throw err
+  const conn = mysql.createConnection({
+    host: 'remotemysql.com',
+    user: 'e21ieINjqn',
+    password: 'Kxx9wc7hj4',
+    database: 'e21ieINjqn'
+  });
 
-  console.log('The solution is: ', rows[0].solution)
-})
+  let mainResults = {};
 
-connection.end()
+  mainResults.all = () => {
+    return new Promise((resolve, reject) => {
+      conn.query(sql, (err, results) => {
+        if(err) {
+          return reject(err)
+        };
+
+        // console.log(results);
+        return resolve(results);
+      });
+      conn.end();
+    })
+  }
+
+  return mainResults;
+};
+
+export default queryDB;

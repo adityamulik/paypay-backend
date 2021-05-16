@@ -1,8 +1,17 @@
+import getEmployeeWithFeedback from '../db/getEmployeeWithFeedback';
+
 const employeeList = {
   method: 'get',
   path: '/api/employees',
-  handler: (req, res) => {
-    res.send("Get all employees as a list!");
+  handler: async (req, res) => {
+    try {
+      // let results = await getEmployees();
+      let results = await getEmployeeWithFeedback();
+      res.json(results);
+    }
+    catch(err) {
+      console.log(`Error ${err}`);
+    }
   }
 }
 
