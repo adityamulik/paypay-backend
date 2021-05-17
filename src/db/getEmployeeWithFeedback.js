@@ -7,7 +7,7 @@ const getEmployeeWithFeedback = async() => {
 
   const employeeWithFeedback = employees.map(employee => ({
     ...employee,
-    feedback: feedbacks.find(feedback => feedback.employee_id === employee.employee_id)
+    feedback: Array(feedbacks.find(feedback => feedback.employee_id === employee.employee_id))
   }))
 
   console.log(employeeWithFeedback);
