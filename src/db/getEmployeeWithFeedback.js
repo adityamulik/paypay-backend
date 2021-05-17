@@ -9,8 +9,7 @@ const getEmployeeWithFeedback = async() => {
     ...employee,
     feedback: Array(feedbacks.find(feedback => feedback.employee_id === employee.employee_id))
   }))
-
-  console.log(employeeWithFeedback);
+  
   return employeeWithFeedback;
 };
 
