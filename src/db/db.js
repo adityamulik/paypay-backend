@@ -1,14 +1,15 @@
 import mysql from 'mysql';
+import dotenv from 'dotenv';
 
-// const env = process.env;
+dotenv.config();
 
-const queryDB = async (sql, params) => {
+const queryDB = async (sql) => {
 
   const conn = mysql.createConnection({
-    host: 'remotemysql.com',
-    user: 'e21ieINjqn',
-    password: 'Kxx9wc7hj4',
-    database: 'e21ieINjqn'
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME
   });
 
   let mainResults = {};
@@ -19,8 +20,6 @@ const queryDB = async (sql, params) => {
         if(err) {
           return reject(err)
         };
-
-        // console.log(results);
         return resolve(results);
       });
       conn.end();
