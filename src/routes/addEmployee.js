@@ -5,7 +5,7 @@ const addEmployee = {
   path: '/api/admin/employee',
   handler: async (req, res) => {
     try {
-      let results = await createEmployee();
+      let results = await createEmployee(req.body);
       res.json(results);
     }
     catch(err) {

@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const queryDB = async (sql) => {
+const queryDB = async (sql, values) => {
 
   const conn = mysql.createConnection({
     host: process.env.DB_HOST,
@@ -16,7 +16,7 @@ const queryDB = async (sql) => {
 
   mainResults.all = () => {
     return new Promise((resolve, reject) => {
-      conn.query(sql, (err, results) => {
+      conn.query(sql, values, (err, results) => {
         if(err) {
           return reject(err)
         };
