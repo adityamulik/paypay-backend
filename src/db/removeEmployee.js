@@ -12,8 +12,6 @@ const removeEmployee = async (id) => {
     message = 'Employee deleted successfully.'
   }
 
-  console.log(message);
-
   return {message};
 };
 
