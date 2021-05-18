@@ -1,8 +1,16 @@
+import removeEmployee from '../db/removeEmployee';
+
 const deleteEmployee = {
   method: 'delete',
-  path: '/api/employees/:employee_id',
-  handler: (req, res) => {
-    
+  path: '/api/admin/employee/remove/:id',
+  handler: async (req, res) => {
+    try {
+      let results = await removeEmployee(req.params.id);
+      res.json(results);
+    }
+    catch(err) {
+      console.log(`Error in deleting employee, ${err}`);
+    }
   }
 }
 
