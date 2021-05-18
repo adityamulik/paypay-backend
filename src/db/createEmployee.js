@@ -7,8 +7,10 @@ const createEmployee = async (employee) => {
 
   let message = 'Error in creating employee.'
 
+  console.log(results);
+
   if(results.affectedRows == 1) {
-    message = 'Employee created successfully.'
+    message = `Employee with id ${results.insertId} created successfully.`
   }
 
   return {message};
