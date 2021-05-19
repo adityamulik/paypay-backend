@@ -5,11 +5,15 @@ const getEmployeeWithFeedback = async() => {
   const employees = await getEmployees();
   const feedbacks = await getFeedback();
 
+  // console.log(feedbacks);
+
   const employeeWithFeedback = employees.map(employee => ({
     ...employee,
-    feedback: Array(feedbacks.find(feedback => feedback.employee_id === employee.employee_id))
+    feedback: feedbacks.map(feedback => {if(feedback.feedback_user === employee.employee_id) { return feedback }})
   }))
   
+  // console.log(employeeWithFeedback);
+
   return employeeWithFeedback;
 };
 
