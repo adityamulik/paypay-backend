@@ -3,7 +3,7 @@ import addFeedback from './addFeedback';
 import deleteEmployee from './deleteEmployee';
 import employeeList from './employeeList';
 import updateEmployee from './updateEmployee';
-import getEmployee from './getEmployee';
+import getEmployeeFeedbacks from './getEmployeeFeedbacks';
 
 export const routes = [ 
   addEmployee,
@@ -11,5 +11,5 @@ export const routes = [
   deleteEmployee,
   employeeList,
   updateEmployee,
-  getEmployee
+  getEmployeeFeedbacks
 ];

@@ -2,7 +2,7 @@ import updateEmployeeDetails from '../db/updateEmployeeDetails';
 
 const updateEmployee = {
   method: 'put',
-  path: '/api/admin/employee/update/:id',
+  path: '/api/admin/employee/:id/update/',
   handler: async (req, res) => {
     try {
       console.log(req.params.id);

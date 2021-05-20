@@ -2,7 +2,7 @@ import createFeedback from '../db/createFeedback';
 
 const addFeedback = {
   method: 'post',
-  path: '/api/employees/:employee_id/feedback',
+  path: '/api/employee/:id/create/feedback',
   handler: async (req, res) => {
     try {
       let results = await createFeedback(req.params.id, req.body);

@@ -1,8 +1,8 @@
 import getEmployeeFeedback from '../db/getEmployeeFeedback';
 
-const getEmployee = {
+const getEmployeeFeedbacks = {
   method: 'get',
-  path: '/api/employee/feedback/:id',
+  path: '/api/employee/:id/feedback/',
   handler: async (req, res) => {
     try {
       let results = await getEmployeeFeedback(req.params.id);
@@ -14,4 +14,4 @@ const getEmployee = {
   }
 }
 
-export default getEmployee;
+export default getEmployeeFeedbacks;
