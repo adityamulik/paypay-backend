@@ -8,4 +8,4 @@ Application built using Node &amp; Express and MySQL for data persistence.
 3. Start the server from CLI: npm start
 4. Development server runs on: http://localhost:8080
 
-# Author: Aditya Mulik
+### Author: Aditya Mulik
